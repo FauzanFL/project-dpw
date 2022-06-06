@@ -31,20 +31,44 @@
     width: 85%;
     padding-bottom: 30px;
     margin: 15px;
-    border: 1px solid #E62129;
     border-radius: 0 44px 44px 44px;
-    box-shadow: 2px 2px #D60909;
 }
 
 .koridor h3 {
     display: block;
     width: 160px;
-    background-color: #E62129;
     color: white;
     font-size: 20px;
     padding: 5px;
     font-weight: bold;
     border-radius: 0 0 20px 0;
+}
+
+.pasarpon {
+    border: 2px solid #447BC0;
+    box-shadow: 3px 3px #247ae4;
+}
+
+.notog {
+    border: 2px solid #66CAD9;
+    box-shadow: 3px 3px #3dc2d6;
+}
+
+.bulupitu {
+    border: 2px solid #ED1D2A;
+    box-shadow: 3px 3px #dd1320;
+}
+
+.koridor1 {
+    background-color: #447BC0;
+}
+
+.koridor2 {
+    background-color: #66CAD9;
+}
+
+.koridor3 {
+    background-color: #ED1D2A;
 }
 
 .koridor a:nth-child(1) {
