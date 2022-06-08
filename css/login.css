@@ -54,6 +54,14 @@ main {
     margin-bottom: 20px;
 }
 
+.alert {
+    position: relative;
+    width: 100%;
+    background-color: red;
+    font-style: italic;
+    color: white;
+}
+
 .input-group input {
     height: 40px;
     width: 100%;
@@ -89,7 +97,7 @@ main {
     justify-content: center;
 }
 
-.tombol input {
+.tombol button {
     width: 50%;
 }
 

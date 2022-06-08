@@ -1,3 +1,26 @@
+<?php
+
+require 'admin/function.php';
+
+if (isset($_POST["login"])) {
+    $username = $_POST["user"];
+    $password = $_POST["pass"];
+
+    $result = mysqli_query($conn, "SELECT * FROM admin WHERE username = '$username'");
+
+    if (mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row["password"])) {
+            header("Location: admin/index.php");
+            exit;
+        }
+    }
+
+    $error = true;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,22 +79,27 @@
     <!-- form login -->
     <main>
         <div class="login">
-            <form action="">
+            <form action="" method="post">
                 <div class="contain-logo">
                     <div class="logo">
                         <img src="img/logo.png" alt="logo">
                     </div>
                 </div>
+                <?php if (isset($error)) : ?>
+                    <div class="alert">
+                        <p>Username / password salah</p>
+                    </div>
+                <?php endif; ?>
                 <div class="input-group">
                     <input type="text" name="user" id="user" required>
                     <label for="user">Username</label>
                 </div>
                 <div class="input-group">
-                    <input type="text" name="pass" id="pass" required>
+                    <input type="password" name="pass" id="pass" required>
                     <label for="pass">Password</label>
                 </div>
                 <div class="tombol">
-                    <input type="submit" value="Login" class="btn btn-primary">
+                    <button type="submit" name="login" class="btn btn-primary">Login</button>
                 </div>
             </form>
         </div>
