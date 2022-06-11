@@ -1,6 +1,8 @@
 <?php
+session_start();
 
 require 'admin/function.php';
+
 
 if (isset($_POST["login"])) {
     $username = $_POST["user"];
@@ -11,7 +13,8 @@ if (isset($_POST["login"])) {
     if (mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
-            header("Location: admin/index.php");
+            $_SESSION["login"] = true;
+            header("Location: admin/index.php?pesan=berhasil");
             exit;
         }
     }
